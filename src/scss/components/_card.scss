@@ -1,0 +1,43 @@
+@import "../../../node_modules/dc-accelerators/src/renders/card/sass/all";
+@import "../global";
+@import "../variables";
+
+.amp-dc-card {
+  .amp-dc-card-name {
+    @include header();
+    font-size: 32px;
+  }
+  .amp-dc-card-text-wrap {
+    padding: 15px;
+    .amp-dc-card-link {
+      @include button();
+    }
+    .amp-dc-card-description {
+      display: block;
+    }
+    &.amp-dc-card-no-image {
+      margin:0;
+      width: 100%;
+      height: calc(100% - 15px);
+      padding: 50% 80px;
+      text-align: center !important; //sorry, was just quicker.
+      .amp-dc-card-name {
+        &:before{
+          content: "\201C";
+          font-family: Georgia, serif;
+          font-size: 250px;
+          display: block;
+          padding-bottom: 60px;
+        }
+        font-size:48px;
+        padding: 60px 0;
+      }
+      .amp-dc-card-description {
+        font-size:22px;
+      }
+    }
+  }
+  a.amp-dc-card-wrap:hover .amp-dc-card-link {
+    text-decoration: none;
+  }
+}

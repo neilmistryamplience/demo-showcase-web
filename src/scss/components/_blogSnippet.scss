@@ -1,0 +1,22 @@
+@import "../global";
+
+.amp-dc-blog-snippet {
+  padding: 100px 80px;
+  .amp-dc-title {
+    @include header();
+    font-size: 48px;
+    padding:40px 0;
+  }
+  .amp-dc-author {
+
+  }
+  .amp-dc-blogdate {
+    padding-top: 100px;
+  }
+}
+.amp-dc-blog-description {
+  padding: 100px 80px 0 80px;
+  p {
+    font-size:16px;
+  }
+}

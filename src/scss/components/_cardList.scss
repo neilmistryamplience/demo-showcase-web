@@ -1,0 +1,189 @@
+@import "../variables";
+
+.amp-dc-card-list-slider {
+  padding: 40px 50px;
+  .amp-dc-card-list-slider-title {
+    color : $defaultgrey;
+    font-size: 24px;
+  }
+  .amp-dc-slider-frame {
+    border-top: 1px solid $defaultgrey;
+    border-bottom: 1px solid $defaultgrey;
+    padding-top: 40px;
+  }
+  .amp-dc-slider-slides {
+    font-size: 0;
+    .amp-dc-slider-slide-card{
+      .amp-dc-card {
+        padding: 0 80px;
+
+        @media (max-width: $breakpoint-tablet) {
+          padding: 0 40px;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+          padding: 0 2px;
+        }
+
+      }
+      &.amp-length-2{
+        @media screen and (min-width: 321px) {
+          width: 50% !important;
+        }
+      }
+      &.amp-length-3{
+        @media screen and (min-width: 321px) {
+          width: 50% !important;
+        }
+        @media screen and (min-width: 769px) {
+          width: 33.3% !important;
+        }
+      }
+    }
+  }
+  .amp-dc-card {
+    .amp-dc-card-name {
+      font-size: 22px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .amp-dc-card-list {
+    background: $lightgrey;
+    padding: 40px 50px;
+    &:not(.amp-dc-cards-hero) {
+      .amp-dc-card-list-wrap {
+        display: flex;
+        flex-direction: row;
+      }
+      .amp-dc-card {
+        display: inline-block;
+        vertical-align: top;
+        flex-grow: 1;
+        padding: 10px;
+        .amp-dc-card-name {
+          font-weight: 200;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .amp-dc-card-list {
+    &.amp-dc-cards-hero {
+      position:relative;
+      padding-bottom: 100%;
+      @media screen and (min-width: 1280px) {
+        padding-bottom: 75%;
+      }
+      .amp-dc-card-list-wrap {
+        position:absolute;
+        top: 0;
+        left:0;
+        width:100%;
+        height:100%;
+        padding: 80px 100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 10px 25px;
+        grid-template-areas: "a a b d" "a a b d" "a a b e" "a a c e" "a a c e";
+
+        .amp-dc-card {
+          height: 100%;
+          .amp-dc-card-wrap {
+            height: 100%;
+            .amp-dc-card-img-wrap {
+              height: calc(100% - 200px);
+              @media screen and (min-width: 1280px) {
+                height: calc(100% - 80px);
+              }
+              .amp-dc-image {
+                height:100%;
+                img {
+                  height:100%;
+                  object-fit: cover;
+                }
+              }
+            }
+            .amp-dc-card-text-wrap {
+              position:absolute;
+              bottom:0;
+              text-align:left;
+              .amp-dc-card-name {
+                font-size:28px;
+                line-height: 1em;
+              }
+            }
+          }
+
+          &:nth-of-type(1) {
+            grid-area: a;
+          }
+          &:nth-of-type(2) {
+            grid-area: b;
+          }
+          &:nth-of-type(3) {
+            grid-area: c;
+          }
+          &:nth-of-type(4) {
+            grid-area: d;
+          }
+          &:nth-of-type(5) {
+            grid-area: e;
+          }
+        }
+      }
+    }
+  }
+}
+
+.amp-dc-card-wrap {
+  position: relative;
+  .amp-dc-card-text-wrap {
+    width: 90%;
+    margin-left: 5%;
+    transform: translateY(-15px);
+    padding: 15px;
+    text-align: left;
+  }
+}
+.amp-dc-card-name {
+  font-weight: 900;
+}
+.amp-dc-card-link {
+
+}
+
+@media screen and (max-width: 768px) {
+  .amp-dc-prod-5-rows {
+    .amp-dc-card {
+      width: 100%;
+    }
+  }
+  .amp-dc-prod-4-rows {
+    .amp-dc-card {
+      width: 100%;
+    }
+  }
+  .amp-dc-prod-3-rows {
+    .amp-dc-card {
+      width: 100%;
+    }
+  }
+  .amp-dc-prod-2-rows {
+    .amp-dc-card {
+      width: 100%;
+    }
+  }
+  .amp-dc-prod-1-rows {
+    .amp-dc-card {
+      width: 100%;
+    }
+  }
+}

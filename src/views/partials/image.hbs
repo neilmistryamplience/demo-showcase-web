@@ -1,0 +1,31 @@
+{{#*inline "image-src"}}//{{image.defaultHost}}/i/{{image.endpoint}}/{{escapeUrl image.name}}{{#if seoText}}/{{escapeUrl seoText}}{{/if}}{{#if format}}.{{format}}{{/if}}?w={{width}}&upscale=false&strip=true{{#if query}}&{{{query}}}{{/if}}{{#compare display '==' 'Point of Interest'}}&$poi$&aspect={{poiAspect}}{{/compare}}{{#roundelProperties}}&$roundel$&{{roundelConfig roundel}}{{/roundelProperties}}{{/inline}}
+
+{{#*inline "source"}}
+  
+  <source srcset="{{> image-src width=width }} 1x, {{> image-src width=highDensityWidth }} 2x"
+        media="({{#if minWidth}}min-width: {{minWidth}}px{{/if}}{{#if maxWidth}}max-width: {{maxWidth}}px{{/if}})"
+        {{#if format}}type="image/{{format}}"{{/if}}>
+
+{{/inline}}
+
+{{#iff image.name '==' 'back_to_school'}}
+    <picture class="amp-dc-image">
+        <img src="//willow.a.bigcontent.io/v1/static/back_to_school"
+             class="amp-dc-image-pic" {{#if imageAltText}} alt="{{imageAltText}}" {{/if}}/>
+    </picture>
+{{else}}
+    <picture class="amp-dc-image">
+        
+        {{> source minWidth="1280" width="1600" highDensityWidth="3200" format="webp" poiAspect="2:1" }}
+        {{> source minWidth="1280" width="1600" highDensityWidth="3200" poiAspect="2:1" }}
+        {{> source minWidth="1024" width="1280" highDensityWidth="2560" format="webp" poiAspect="2:1" }}
+        {{> source minWidth="1024" width="1280" highDensityWidth="2560" poiAspect="2:1" }}
+        {{> source minWidth="768" width="1024" highDensityWidth="2048" format="webp" poiAspect="1.5:1" }}
+        {{> source minWidth="768" width="1024" highDensityWidth="2048" poiAspect="1.5:1" }}
+        {{> source maxWidth="768" width="768" highDensityWidth="1536" format="webp" poiAspect="1:1" }}
+        {{> source maxWidth="768" width="768" highDensityWidth="1536" poiAspect="1:1" }}
+
+        <img src="{{> image-src width="1600" }}" class="amp-dc-image-pic" {{#if imageAltText}} alt="{{imageAltText}}" {{/if}}/>
+
+    </picture>
+{{/iff}}

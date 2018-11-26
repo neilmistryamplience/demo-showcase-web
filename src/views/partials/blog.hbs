@@ -1,0 +1,10 @@
+<div class="amp-dc-blog js_dc_blog">
+    <div class="amp-dc-snippet">
+        {{ templateChooser snippet }}
+    </div>
+    <div class="amp-dc-blog-content">
+        {{#each contentTypes}}
+            <div class="amp-dc-block-wrap">{{templateChooser this}}</div>
+        {{/each}}
+    </div>
+</div>

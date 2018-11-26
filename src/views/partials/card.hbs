@@ -1,0 +1,50 @@
+<div class="amp-dc-card amp-dc-card-{{math addTemplateClassname '+' 1}}">
+{{#if links.[0]}}
+    <a class="amp-dc-card-wrap" href="{{links.[0].value}}"
+       {{#if textBackgroundColour}}style="background: #{{textBackgroundColour}};"{{/if}}
+    >
+{{else}}
+    <div class="amp-dc-card-wrap">
+{{/if}}
+
+    <div class="amp-dc-card-img-wrap">
+        {{templateChooser image}}
+    </div>
+
+
+    <div class="amp-dc-card-text-wrap
+        {{#unless cardName}}
+        {{#unless description}}
+            {{#unless link}}
+                        amp-dc-hide
+                 {{/unless}}
+        {{/unless}}
+    {{/unless}}
+    {{#unless image}}
+        amp-dc-card-no-image
+    {{/unless}}">
+
+        {{#if cardName}}
+            <div class="amp-dc-card-name">{{cardName}}</div>
+        {{/if}}
+        {{#if description}}
+            <p class="amp-dc-card-description">{{description}}</p>
+        {{/if}}
+        {{#each links}}
+            <div class="amp-dc-card-link">
+                {{#if this.label}}
+                    {{this.label}}
+                {{else}}
+
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+
+{{#if links.[0]}}
+    </a>
+{{else}}
+    </div>
+{{/if}}
+
+</div>

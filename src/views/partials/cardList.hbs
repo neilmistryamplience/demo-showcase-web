@@ -1,0 +1,46 @@
+{{#if slider}}
+<div class="amp-dc-card-list-slider">
+    <div class="amp-dc-card-list-slider-title">
+        {{ header }}
+    </div>
+    <div class="amp-dc-slider js_slider" data-infinite="true" data-autoplay="true" data-navigation="false" data-sliderlength="{{cards.length}}">
+        <div class="amp-dc-slider-frame js_frame {{#if navigationDots}}dots{{/if}}">
+            <ul class="amp-dc-slider-slides js_slides">
+                {{#each cards}}
+                    <li class="amp-dc-slider-slide amp-dc-slider-slide-card {{#gt ../cards.length 1 }} {{#gt ../cards.length 2 }} amp-length-3 {{else}} amp-length-2 {{/gt}} {{/gt}} js_ca_slide">
+                        {{> card this index=@index }}
+                    </li>
+                {{/each}}
+            </ul>
+            <span class="amp-dc-slider-prev js_prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5">
+                    <g>
+                        <path d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/>
+                    </g>
+                </svg>
+            </span>
+            <span class="amp-dc-slider-next js_next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5">
+                    <g>
+                        <path d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"/>
+                    </g>
+                </svg>
+            </span>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="amp-dc-card-list
+{{#iff cards.length '<' 6}}amp-dc-prod-{{cards.length}}-rows
+{{else}}amp-dc-prod-3-rows{{/iff}}
+    {{#if heroList}}amp-dc-cards-hero{{/if}}
+">
+    <div class="amp-dc-card-title">
+        {{ header }}
+    </div>
+
+    <div class="amp-dc-card-list-wrap">
+        {{#each cards}}{{templateChooser this @index}}{{/each}}
+    </div>
+</div>
+{{/if}}

@@ -1,0 +1,16 @@
+@import "../../../node_modules/dc-accelerators/src/renders/text/sass/all";
+@import "../global";
+
+.amp-dc-block-wrap {
+  .amp-dc-text {
+    padding: 40px 80px;
+
+    h1 {
+      @include header();
+    }
+
+    a {
+      @include button();
+    }
+  }
+}

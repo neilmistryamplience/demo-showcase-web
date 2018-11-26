@@ -1,0 +1,41 @@
+<div class="amp-dc-banner js_dc_banner">
+    <div class="amp-dc-banner-wrapper">
+        <div class="amp-dc-banner-pic-wrap">
+            {{templateChooser image}}
+        </div>
+        <div class="amp-dc-banner-content-image">
+            {{templateChooser contentImg}}
+        </div>
+        <div class="amp-dc-banner-info-wrap" data-align="left">
+            <div class="amp-dc-banner-info">
+                {{#if title}}
+                    <div class="amp-dc-banner-header">{{title}}</div>
+                {{/if}}
+                    <div class="amp-dc-banner-description">
+                        {{#if blogdate}}
+                            <div class="amp-dc-blogdate">{{blogdate}}</div>
+                        {{/if}}
+                        {{#if author}}
+                            <div class="amp-dc-author">{{author}}</div>
+                        {{/if}}
+                    </div>
+                {{#if cta}}
+                    <a href="{{cta.value}}"
+                       class="amp-dc-banner-button {{#if style}}{{style}}{{/if}}">
+                        {{#if cta.label}}
+                            {{cta.label}}
+                        {{else}}
+                            Read more >>
+                        {{/if}}
+                    </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#if description}}
+    <div class="amp-dc-blog-description">
+        <p>{{description}}</p>
+    </div>
+{{/if}}

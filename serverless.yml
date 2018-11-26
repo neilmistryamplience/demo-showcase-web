@@ -1,0 +1,33 @@
+service: willow-demo-web
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: eu-west-1
+  memorySize: 2048
+  timeout: 60
+plugins:
+- serverless-domain-manager
+package:
+  include:
+  - dist/**
+functions:
+  api:
+    handler: dist/src/lambda.handler
+    events:
+    - http: ANY {proxy+}
+    - http:
+        path: /
+        method: get
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  domains:
+    prod: anyafinn.dev.adis.ws
+    dev: dev-anyafinn.dev.adis.ws
+
+  customDomain:
+    basePath: ""
+    domainName: ${self:custom.domains.${self:custom.stage}}
+    stage: "${self:custom.stage}"
+    createRoute53Record: true

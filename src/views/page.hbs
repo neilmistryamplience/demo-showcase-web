@@ -1,0 +1,25 @@
+{{#if timestamp}}<div class="af-timemachine">
+    <span>Currently Viewing: {{moment timestamp format ="dddd, DD MMMM YYYY HH:mm:ss ZZ"}}</span>
+    <a href="/current">View Current</a>
+</div>{{/if}}
+
+{{> navigation megaMenu}}
+<div class="af-main-content">
+    {{#each slots}}
+        <div class="af-slot" data-slot-id="{{this.[@id]}}" data-slot-name="{{this._meta.name}}" data-edition="{{this._meta.edition.id}}" >
+            {{templateChooser this }}
+
+            <div class="af-debug-overlay">
+                <div class="af-debug-menu">
+                     <a class="af-debug-menu-slot-name">Slot: {{slotName (remove this.[@id] "http://content.cms.amplience.com/")}}</a>
+
+                    <a href="https://content.amplience.net/#!/willow/authoring/content-item/edit/5b867537cff47e0001753890/{{remove this.[@id] "http://content.cms.amplience.com/"}}" class="af-button af-button-dark">View Slot</a>
+                    <a href="https://content.amplience.net/#!/willow/planning/edition/5b7e70a2c9e77c0001671425/{{this._meta.edition.id}}/" class="af-button af-button-dark">View Edition</a>
+
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+{{> footer}}

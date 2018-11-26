@@ -1,0 +1,30 @@
+<div class="af-shoppable-video">
+    {{#with video}}
+        <video controls muted preload="auto" poster="//{{defaultHost}}/v/{{endpoint}}/{{name}}?w=1280">
+            <source src="//{{defaultHost}}/v/{{endpoint}}/{{name}}/mp4_720p" type='video/mp4'>
+            <source src="//{{defaultHost}}/v/{{endpoint}}/{{name}}/webm_720p" type='video/webm'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    {{/with}}
+    <div class="af-shoppable-video-products-wrapper">
+        <ul class="af-shoppable-video-products">
+            {{#each products}}
+                <li class="af-shoppable-video-product" data-timestamp="{{timestamp}}">
+                    <div class="af-shoppable-video-product__image">
+                        {{#with image}}
+                            <img src="//{{defaultHost}}/i/{{endpoint}}/{{name}}.webp?w=300&h=300&%poi%">
+                        {{/with}}
+                    </div>
+                    <div class="af-shoppable-video-product-details">
+                        <div class="af-shoppable-video-product-details__name">{{name}}</div>
+                        <div class="af-shoppable-video-product-details__price">{{price}}</div>
+                        <a class="af-shoppable-video-product-details__cta">Add to my bag</a>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
